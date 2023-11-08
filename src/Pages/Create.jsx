@@ -3,11 +3,12 @@ import { addMroeTag, addNewTask, fetchFilterTags, fetchTasks, removeTag } from '
 import { NavLink , Link ,useNavigate } from 'react-router-dom'
 import {IoIosRemoveCircleOutline} from 'react-icons/io'
 import Swal from 'sweetalert2'
+import Load from '../loader/Load'
 
 
 const Create = () => {
-  const [tasks,setTasks] = useState([])
-  const [tags,setTags] = useState([])
+  const [tasks,setTasks] = useState()
+  const [tags,setTags] = useState()
 
   const [title,setTitle] = useState('')
   const [desc,setDesc] = useState('')
@@ -31,7 +32,7 @@ const Create = () => {
   },[])
   console.log(title);
 
-  const createNewTag = ()=>{
+  const createNewTag = async()=>{
       if (addTagInput==='') {
         return
       }
@@ -40,11 +41,15 @@ const Create = () => {
         filterBy:addTagInput.toLocaleLowerCase(),
         id: Date.now()
       }
-      const data = addMroeTag(object)
+      const data = await addMroeTag(object)
       console.log(data);
       getData()
 
       setAddTagInput('')
+  }
+  const handleRemoveTag = async(id)=>{
+    const data = await removeTag(id)
+    getData()
   }
 
   const handleSubmit = ()=>{
@@ -134,7 +139,8 @@ const Create = () => {
 
   }
   return (
-    <div className='lg:w-[50%] sm:w-[72%] w-[80%] px-3 mx-auto my-10 gap-3 flex flex-col items-center justify-center'>
+      <>
+      {tags===undefined?<Load/>:    <div className='lg:w-[50%] sm:w-[72%] w-[80%] px-3 mx-auto my-10 gap-3 flex flex-col items-center justify-center'>
         <div className='w-full'>
             <label htmlFor="small-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
             <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" id="small-input" className="outline-none block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs   dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='React...'/>
@@ -147,10 +153,7 @@ const Create = () => {
               <div className='flex flex-wrap gap-2'>
                 {tags.map(tag=><div className='relative ' key={tag.id}>
                   <div    onClick={()=>setChooseTag(tag.filterBy)} className={`${tag.filterBy===chooseTag?"border z-0 cursor-pointer text-sm rounded px-1 py-1  transition bg-[#D8D9DA] text-white":'border z-0 cursor-pointer text-sm rounded px-1 py-1  transition hover:bg-[#D8D9DA] hover:text-white'}`}>{tag.tag}</div>
-                  {tag.filterBy!==""&&                  <IoIosRemoveCircleOutline onClick={()=>{
-                    removeTag(tag.id)
-                    getData()
-                  }} className='text-md absolute -top-2 -left-2 z-10 cursor-pointer'/>}
+                  {tag.filterBy!==""&&                  <IoIosRemoveCircleOutline onClick={()=>{handleRemoveTag(tag.id)}} className='text-md absolute -top-2 -left-2 z-10 cursor-pointer'/>}
                 </div>)}
               </div>
               <small className='underline underline-offset-1'>Please choose one tag to be able to find what you are looking for easily</small>
@@ -166,7 +169,8 @@ const Create = () => {
           </div>
         </div>
 
-    </div>
+    </div>}
+      </>
   )
 }
 

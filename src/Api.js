@@ -39,7 +39,23 @@ export const removeTask = async(id)=>{
     return data
 }
 
-export const getSingleTask = async(id)=>{
-    const data = await axios.get(`${baseUrl}tasks/${id}`)
+export const getSingleTask = async (id) => {
+    try {
+      const data = await axios.get(`${baseUrl}tasks/${id}`);
+      // Assuming the response contains the data you need
+      return data;
+    } catch (error) {
+      // Handle the error and return it as an object
+      const errorObject = {
+        message: 'An error occurred while fetching the task',
+        details: error.message, // You can include additional error details
+      };
+      return error.message;
+    }
+  };
+  
+
+export const editTask = async(id,updateData)=>{
+    const data = await axios.patch(`${baseUrl}tasks/${id}`,updateData)
     return data
 }

@@ -6,16 +6,6 @@
       "id": 0
     },
     {
-      "tag": "Work",
-      "filterBy": "work",
-      "id": 9
-    },
-    {
-      "tag": "Home",
-      "filterBy": "home",
-      "id": 3
-    },
-    {
       "tag": "High Priority",
       "filterBy": "high priority",
       "id": 5
@@ -31,32 +21,65 @@
       "id": 7
     },
     {
+      "tag": "Home",
+      "filterBy": "home",
+      "id": 1699457875420
+    },
+    {
       "tag": "School",
       "filterBy": "school",
-      "id": 1699429264571
+      "id": 1699457879814
     },
     {
       "tag": "To-Do",
       "filterBy": "to-do",
-      "id": 1699433758900
+      "id": 1699460655456
+    },
+    {
+      "tag": "Personal",
+      "filterBy": "personal",
+      "id": 1699460801944
+    },
+    {
+      "tag": "Low Quality",
+      "filterBy": "low quality",
+      "id": 1699461976386
+    },
+    {
+      "tag": "Work",
+      "filterBy": "work",
+      "id": 1699466752156
+    },
+    {
+      "tag": "Team",
+      "filterBy": "team",
+      "id": 1699470630284
     }
   ],
   "tasks": [
     {
-      "title": "React project",
-      "description": "React lets you build user interfaces out of individual pieces called components. Create your own React components like Thumbnail, LikeButton, and Video. Then combine them into entire screens, pages, and apps.",
-      "id": 1699444857232,
+      "title": "React 3",
+      "description": "The library for web and native user interfaces\n\nReact lets you build user interfaces out of individual pieces called components. Create your own React components like Thumbnail, LikeButton, and Video. Then combine them into entire screens, pages, and apps.",
+      "id": 1699466760045,
       "tag": "high priority",
-      "date": "2023-11-8",
-      "time": "6:30 PM"
+      "date": "2023-11-9",
+      "time": "0:36 AM"
     },
     {
-      "title": "ddddddd",
-      "description": "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
-      "id": 1699445173511,
-      "tag": "to-do",
-      "date": "2023-11-8",
-      "time": "6:36 PM"
+      "title": "",
+      "description": "",
+      "id": 1699467146864,
+      "tag": "low quality",
+      "date": "2023-11-9",
+      "time": "0:42 AM"
+    },
+    {
+      "title": "Testing ",
+      "description": "Whether you work on your own or with thousands of other developers, using React feels the same. It is designed to let you seamlessly combine components written by independent people, teams, and organizations.",
+      "id": 1699470776085,
+      "tag": "medium priority",
+      "date": "2023-11-9",
+      "time": "1:42 AM"
     }
   ]
 }

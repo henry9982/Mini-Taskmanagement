@@ -7,6 +7,7 @@ import {GrTasks} from 'react-icons/gr'
 import AllTasks from './Pages/AllTasks'
 import FilteredTasks from './Pages/FilteredTasks'
 import Detail from './Pages/Detail'
+import NotFoundPage from './Pages/NotFoundPage'
 
 
 const App = () => {
@@ -21,11 +22,12 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home/>}>
           <Route index element={<AllTasks/>}/>
-          <Route path='/:id' element={<FilteredTasks/>}/>
+          <Route path='filter/:id' element={<FilteredTasks/>}/>
         </Route>
         <Route path='create' element={<Create/>}/>
         <Route path='edit/:id' element={<Edit/>}/>
         <Route path='detail/:id' element={<Detail/>}/>
+        <Route path='*' element={<NotFoundPage/>}/>
       </Routes>
       
     </div>
