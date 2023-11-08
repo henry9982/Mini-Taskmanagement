@@ -1,0 +1,62 @@
+{
+  "filterTags": [
+    {
+      "tag": "All",
+      "filterBy": "",
+      "id": 0
+    },
+    {
+      "tag": "Work",
+      "filterBy": "work",
+      "id": 9
+    },
+    {
+      "tag": "Home",
+      "filterBy": "home",
+      "id": 3
+    },
+    {
+      "tag": "High Priority",
+      "filterBy": "high priority",
+      "id": 5
+    },
+    {
+      "tag": "Medium Priority",
+      "filterBy": "medium priority",
+      "id": 6
+    },
+    {
+      "tag": "Low Priority",
+      "filterBy": "low priority",
+      "id": 7
+    },
+    {
+      "tag": "School",
+      "filterBy": "school",
+      "id": 1699429264571
+    },
+    {
+      "tag": "To-Do",
+      "filterBy": "to-do",
+      "id": 1699433758900
+    }
+  ],
+  "tasks": [
+    {
+      "title": "React project",
+      "description": "React lets you build user interfaces out of individual pieces called components. Create your own React components like Thumbnail, LikeButton, and Video. Then combine them into entire screens, pages, and apps.",
+      "id": 1699444857232,
+      "tag": "high priority",
+      "date": "2023-11-8",
+      "time": "6:30 PM"
+    },
+    {
+      "title": "ddddddd",
+      "description": "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "id": 1699445173511,
+      "tag": "to-do",
+      "date": "2023-11-8",
+      "time": "6:36 PM"
+    }
+  ]
+}
