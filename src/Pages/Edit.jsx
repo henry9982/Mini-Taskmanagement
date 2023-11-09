@@ -28,7 +28,6 @@ const Edit = () => {
         setErrorString(true)
         return
       }
-      console.log(data);
           setTask(data.data)
         setTitle(data.data.title)
         setDesc(data.data.description)
@@ -46,15 +45,13 @@ const Edit = () => {
   const getData = async()=>{
     const {data:tagsData} = await fetchFilterTags()
     const {data:tasksData} = await fetchTasks()
-    console.log(tagsData);
-    console.log(tasksData);
+
     setTasks(tasksData)
     setTags(tagsData)
   }
   useEffect(()=>{
     getData()
   },[])
-  console.log(title);
 
   const createNewTag = async()=>{
       if (addTagInput==='') {
@@ -66,7 +63,6 @@ const Edit = () => {
         id: Date.now()
       }
       const data = await addMroeTag(object)
-      console.log(data);
       getData()
 
       setAddTagInput('')

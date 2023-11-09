@@ -14,7 +14,7 @@ const Detail = () => {
     const [task,setTask] = useState()
     const getData = async()=>{
         const {data} = await getSingleTask(id)
-        console.log(data);
+
         setTask(data)
     }
     useEffect(()=>{
@@ -22,7 +22,7 @@ const Detail = () => {
     },[])
   return (
     <>
-        {task===undefined?<Load/>:    <div className={`${task?.title===''&&task?.description===''?'w-fit':'md:w-2/3 w-4/5'}  mx-auto   h-auto flex flex-col flex-wrap gap-5 my-20  p-5 rounded`}>
+        {task===undefined?<Load/>:    <div className={`${task?.title===''&&task?.description===''?'w-fit':task?.title.length<50&&task?.description.length<72?'w-fit':'md:w-2/3 w-4/5'}  mx-auto   h-auto flex flex-col flex-wrap gap-5 my-20  p-5 rounded`}>
         <div className='flex self-start border-b py-2 max-[390px]:gap-5 w-fit items-center gap-16'>
             <div className='flex flex-col w-fit'>
                 <div className='self-start font-poppins font-semibold text-lg'>

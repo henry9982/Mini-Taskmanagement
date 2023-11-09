@@ -16,7 +16,7 @@ const App = () => {
       <Link to={'/'}>
         <div className='w-fit gap-2 flex justify-center items-center mx-auto my-4  text-3xl'>
             <GrTasks className='hover:scale-110 transition duration-300'/>
-            <div className='font-bold hover:scale-110 transition duration-300 text-[#435585] -mt-1'>TSM</div>
+            <div className='font-bold hover:scale-110 transition duration-300 text-[#435585] mt-1'>TSM</div>
         </div>
       </Link>
       <Routes>

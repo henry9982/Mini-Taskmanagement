@@ -22,15 +22,12 @@ const Create = () => {
   const getData = async()=>{
     const {data:tagsData} = await fetchFilterTags('allData')
     const {data:tasksData} = await fetchTasks('allData')
-    console.log(tagsData);
-    console.log(tasksData);
     setTasks(tasksData)
     setTags(tagsData)
   }
   useEffect(()=>{
     getData()
   },[])
-  console.log(title);
 
   const createNewTag = async()=>{
       if (addTagInput==='') {
@@ -42,7 +39,6 @@ const Create = () => {
         id: Date.now()
       }
       const data = await addMroeTag(object)
-      console.log(data);
       getData()
 
       setAddTagInput('')
@@ -79,6 +75,13 @@ const Create = () => {
           const dateString = `${currentYear}-${currentMonth}-${currentDay}`;
           let hours = today.getHours();
           const minutes = today.getMinutes();
+          
+          let minutesString = minutes
+          if (minutes>=10) {
+            minutesString = minutes
+          }else{
+            minutesString = `0${minutes}`
+          }
           let amOrPm = "AM";
       
           if (hours >= 12) {
@@ -87,7 +90,7 @@ const Create = () => {
                   hours -= 12;
               }
           }
-          const timeString = `${hours}:${minutes} ${amOrPm}`;
+          const timeString = `${hours}:${minutesString} ${amOrPm}`;
       
           const object = {
             title:title,
@@ -163,7 +166,7 @@ const Create = () => {
               <input onKeyDown={(e)=>e.key==="Enter"&&createNewTag()} value={addTagInput} onChange={(e)=>setAddTagInput(e.target.value)} type="text" className='outline-none bg-gray-50' placeholder='Add your own tag' />
               <button  onClick={()=>createNewTag()} className='border bg-white hover:scale-105 transition active:bg-green-600 hover:bg-green-500 hover:text-white rounded px-2 py-1'>add</button>
           </div>
-          <div className='flex items-center gap-5 max-sm:ms-5'>
+          <div className='flex items-center gap-5  max-sm:ms-5 self-end'>
             <Link to={'/'} className='text-blue-500 font-semibold hover:scale-105 transition py-2 cursor-pointer'>Cancle</Link>
             <button onClick={()=>handleSubmit()} className='text-white border bg-blue-500 px-2 py-2 rounded-lg hover:scale-105 transition'>Save Task</button>
           </div>

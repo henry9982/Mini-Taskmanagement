@@ -11,8 +11,7 @@ const AllTasks = () => {
   const getData = async()=>{
     const {data:tagsData} = await fetchFilterTags()
     const {data:tasksData} = await fetchTasks()
-    console.log(tagsData);
-    console.log(tasksData);
+
     setTasks(tasksData)
     setTags(tagsData)
   }

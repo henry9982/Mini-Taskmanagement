@@ -11,8 +11,7 @@ const Home = () => {
   const getData = async()=>{
     const {data:tagsData} = await fetchFilterTags()
     const {data:tasksData} = await fetchTasks()
-    console.log(tagsData);
-    console.log(tasksData);
+
     setTasks(tasksData)
     setTags(tagsData)
 
@@ -23,7 +22,7 @@ const Home = () => {
 
   return (
     <>
-      {tags===undefined?<Load/>:    <div className='flex overflow-hidden lg:w-[60%] md:w-[75%] w-full mx-auto  py-10 px-5 gap-3  flex-col'>
+      {tags===undefined?<Load/>:    <div className='flex overflow-hidden lg:w-[60%] md:w-[75%] w-full mx-auto  py-10 px-10 gap-3  flex-col'>
           <button  onClick={()=>navigate('/create')} className='border w-fit self-end p-2 rounded bg-blue-400 font-bold text-sm text-white flex-shrink-0'>Add New Task</button>
         <div className='flex w-full overflow-hidden flex-nowrap whitespace-nowrap overflow-x-auto border scroll-bar py-3 cursor-pointer px-3 rounded items-center gap-2'>
             <div>Tags:</div>
